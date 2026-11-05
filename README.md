@@ -24,7 +24,7 @@ An online wholesaler's raw sales data held about 1.07 million invoice lines. Mix
 - **94% of the raw rows were kept** as clean, valid product sales.
 
 ## Part 2: SQL analysis
-With the clean data loaded into SQLite, I answered nine catalog and sales questions (`02_sql_analysis.ipynb`, queries in `queries.sql`), using joins, CTEs, subqueries and window functions (`LAG`, `RANK`).
+With the clean data loaded into SQLite, I answered nine catalog and sales questions ([02_sql_analysis.ipynb](02_sql_analysis.ipynb), queries in [queries.sql](queries.sql)), using joins, CTEs, subqueries and window functions (`LAG`, `RANK`).
 
 - **Products with conflicting names carry about 26% of revenue** (roughly £5.1 million), so the cleanup affects the products that sell, not just obscure ones. High-volume items like `JUMBO BAG RED RETROSPOT` are first in line.
 - **Price checks caught likely catalog errors.** A car flag with a median price of £0.42 was recorded at £1,157.15, and a 60-piece bulk lot of picnic baskets was sold under the single basket's product code.
@@ -37,16 +37,16 @@ With the clean data loaded into SQLite, I answered nine catalog and sales questi
 ## Outputs
 | File | Contents |
 |---|---|
-| `outputs/clean_transactions.csv.gz` | The clean sales data used in Part 2 |
-| `outputs/product_master.csv` | One row per product: official description, number of name variants, price range, sales volume, review flag |
-| `outputs/description_conflicts.csv` | Every product with conflicting names, with the chosen official name, for human review |
-| `outputs/data_quality_log.csv` | Rows before and after each cleaning step |
-| `outputs/non_product_lines.csv` | Postage, fees and adjustments separated from the catalog |
-| `outputs/rows_removed_by_step.png` | Chart of rows removed at each step |
+| [clean_transactions.csv.gz](outputs/clean_transactions.csv.gz) | The clean sales data used in Part 2 |
+| [product_master.csv](outputs/product_master.csv) | One row per product: official description, number of name variants, price range, sales volume, review flag |
+| [description_conflicts.csv](outputs/description_conflicts.csv) | Every product with conflicting names, with the chosen official name, for human review |
+| [data_quality_log.csv](outputs/data_quality_log.csv) | Rows before and after each cleaning step |
+| [non_product_lines.csv](outputs/non_product_lines.csv) | Postage, fees and adjustments separated from the catalog |
+| [rows_removed_by_step.png](outputs/rows_removed_by_step.png) | Chart of rows removed at each step |
 
 ## How to run it
 1. Download `online_retail_II.xlsx` from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/502/online+retail+ii).
-2. Open `01_data_cleaning.ipynb` in [Google Colab](https://colab.research.google.com/) or Jupyter, and upload the Excel file to the same folder.
+2. Open [01_data_cleaning.ipynb](01_data_cleaning.ipynb) in [Google Colab](https://colab.research.google.com/) or Jupyter, and upload the Excel file to the same folder.
 3. Run all cells. Loading the Excel file takes a minute or two.
 4. To run Part 2 on its own, open `02_sql_analysis.ipynb` and upload the `outputs` folder files it reads (`clean_transactions.csv.gz` and `product_master.csv`).
 
