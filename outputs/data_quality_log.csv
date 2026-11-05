@@ -1,0 +1,6 @@
+step,rows_before,rows_after,rows_removed,note
+2. Standardize text,1067371,1067371,0,"253,546 descriptions and 3,472 codes reformatted"
+3. Remove exact duplicates,1067371,1033036,34335,identical rows
+4. Remove cancellations,1033036,1013932,19104,invoice starts with C
+5. Separate non-product lines,1013932,1009299,4633,saved to non_product_lines.csv
+6. Remove invalid records,1009299,1003338,5961,"missing description, quantity or price <= 0"
